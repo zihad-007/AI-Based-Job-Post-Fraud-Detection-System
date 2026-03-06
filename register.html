@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Job Fraud Detection</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="auth-box">
+
+    <h2>Create Account</h2>
+
+    <form method="POST">
+
+        <!-- Username -->
+        <input type="text" name="username" placeholder="Username" required>
+
+        <!-- Email or Phone Number -->
+        <input type="text" name="contact" placeholder="Email or Phone Number"
+               pattern="(^[\w\.-]+@[\w\.-]+\.\w+$)|(^01[3-9]\d{8}$)" required>
+
+        <!-- Password -->
+        <input type="password" name="password" placeholder="Password" required>
+
+        <!-- Submit Button -->
+        <button type="submit">Register</button>
+
+    </form>
+
+    <!-- Error message -->
+    {% if error %}
+    <div class="alert error-alert">
+    ⚠ {{error}}
+    </div>
+    {% endif %}
+
+    <a href="/login">Already have an account? Login</a>
+
+</div>
+
+</body>
+</html>
