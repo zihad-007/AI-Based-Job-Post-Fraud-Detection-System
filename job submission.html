@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Job Fraud Detection - Post Job</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<div class="navbar">
+<h2>AI Job Fraud Detection</h2>
+
+<div>
+<a href="/dashboard">Dashboard</a>
+<a href="/logout">Logout</a>
+</div>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Job Post Submission</h2>
+
+<form method="POST">
+
+<div class="form-group">
+
+<label>Job Title</label>
+<input type="text" name="title" placeholder="Software Engineer" required>
+
+</div>
+
+<div class="form-group">
+
+<label>Company Name</label>
+<input type="text" name="company" placeholder="Tech Solutions Ltd." required>
+
+</div>
+
+<div class="form-group">
+
+<label>Job Description</label>
+<textarea name="job" rows="6" placeholder="Enter full job details..." required></textarea>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+
+<label>Salary Range</label>
+<input type="text" name="salary" placeholder="$50,000 - $70,000">
+
+</div>
+
+<div class="form-group">
+
+<label>Employment Type</label>
+
+<select name="type">
+
+<option>Full-time</option>
+<option>Part-time</option>
+<option>Contract</option>
+<option>Remote</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button type="submit">Analyze Job</button>
+
+</form>
+
+
+{% if processed %}
+
+<h3>Processed Text</h3>
+
+<p>{{processed}}</p>
+
+{% endif %}
+
+
+{% if result %}
+
+<div class="result {% if 'Fraud' in result %}fraud{% else %}safe{% endif %}">
+
+<h3>{{result}}</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
